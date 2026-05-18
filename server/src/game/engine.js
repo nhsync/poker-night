@@ -134,6 +134,10 @@ function playerAction(game, playerId, action, amount) {
   game.lastAction = { playerId, action, amount: player.bet };
 
   // Check if round of betting is over
+  const activePlayers = game.players.filter(p => !p.folded && !p.allIn);
+  if (activePlayers.length === 0) {
+  return advanceStage(game);
+  }
   const active = game.players.filter(p => !p.folded && !p.allIn);
   const allCalled = active.every(p => p.bet === game.currentBet);
   const onlyOneLeft = game.players.filter(p => !p.folded).length === 1;

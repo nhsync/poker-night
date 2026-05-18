@@ -99,8 +99,15 @@ export default function App() {
         <span className="game__logo">Poker Night</span>
         <span className="game__room">Room: {roomInfo.roomId}</span>
         <span className={`game__status ${isMyTurn ? 'game__status--active' : ''}`}>
-          {isMyTurn ? 'Your turn' : gameState?.stage || ''}
-        </span>
+  {isMyTurn ? 'Your turn' : gameState?.stage || ''}
+</span>
+<button
+  className="btn btn--sm"
+  style={{ marginLeft: '8px' }}
+  onClick={() => window.location.reload()}
+>
+  Leave Table
+</button>
       </header>
 
       <div className="game__body">
@@ -131,10 +138,15 @@ export default function App() {
             </div>
 
             {canStart && (
-              <button className="btn btn--primary table__start" onClick={() => startGame(roomInfo.roomId)}>
-                {gameState?.stage === 'waiting' ? 'Start Game' : 'Next Round'}
-              </button>
-            )}
+  <div style={{ display: 'flex', gap: '8px' }}>
+    <button className="btn btn--primary table__start" onClick={() => startGame(roomInfo.roomId)}>
+      {gameState?.stage === 'waiting' ? 'Start Game' : 'Next Round'}
+    </button>
+    <button className="btn btn--danger table__start" onClick={() => window.location.reload()}>
+      Leave Table
+    </button>
+  </div>
+)}
           </div>
 
           {myPlayer && gameState && !canStart && (
