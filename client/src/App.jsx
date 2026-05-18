@@ -76,10 +76,7 @@ export default function App() {
       </button>
 
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '8px' }}>
-        <a>
-          style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ffffffff', fontSize: '13px', textDecoration: 'none' }}
-          Created by
-          </a>
+        
         <a
           href="https://www.linkedin.com/in/nitinhrao"
           target="_blank"
